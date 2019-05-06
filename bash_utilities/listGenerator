@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo nanai
+
+ls > lista1
+
+cantidadLineas=$(wc -l lista1 | cut -d " " -f1)
+
+for (( n=1; n<=cantidadLineas; n++ )); do
+	nombre=$(head -n $n lista1 | tail -n 1 | tr '_' ' ')
+	nombre=${nombre%.*}
+	echo "<li> $nombre </li>"
+
+done
+
